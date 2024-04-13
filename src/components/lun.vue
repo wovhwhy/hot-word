@@ -3,7 +3,7 @@
     <el-carousel :interval="4000" type="card" height="500px">
       <el-carousel-item v-for="(image, index) in images" :key="index">
         <h3 style="font-size: 2em; text-align: center;">
-          <img :src="image" alt="">
+          <img :src="getImageUrl(image)" alt="">
         </h3>
       </el-carousel-item>
     </el-carousel>
@@ -15,13 +15,20 @@ export default {
   data() {
     return {
       images: [
-        '../assets/recom.png',
-        '../assets/登录.png',
-        '../assets/登录.png'
+        'recom.png',
+        '登录.png',
+        '登录.png'
       ]
     };
+  },
+  methods: {
+    getImageUrl(image) {
+      return require(`../assets/${image}`);
+    }
   }
 }
+</script>
+
 </script>
 
 </script>
