@@ -1,8 +1,7 @@
 <template>
   <div main>
     <div header>
-      <lun></lun>
-    <!-- <img src="../assets/首页1.png" alt=""> -->
+     <img src="../assets/首页1.png" alt=""> 
   </div>
   <div class="nav">
     <span>热词潮流，尽在指尖</span>
@@ -36,7 +35,6 @@ import { dateEquals } from 'element-plus'
   export default{
     name:'home',
     components:{
-      lun,
 },
 data(){
 return{

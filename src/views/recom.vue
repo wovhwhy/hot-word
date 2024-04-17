@@ -5,7 +5,7 @@
     <img src="../assets/recom.png" alt="">
   <div class="search-box">
     <input  placeholder="搜一搜" icon type="搜索" extraclass="icon"  v-model="wordName"/>
-    <el-button type="primary" plain class="iconfont icon-sousuo1"  @click="queryWordMeaning" >搜索</el-button>
+    <el-button type="primary" plain class="iconfont icon-sousuo1"  @click="queryWordMeaning(wordName)" >搜索</el-button>
   </div>
 </div>
 <div class="text">
@@ -63,10 +63,10 @@ export default{
     // gosearch(wordName,wordMeaning){
     //   this.$router.push({ name: 'search', params:{ wordName: wordName ,wordMeaning: wordMeaning } });
     // },
-    async queryWordMeaning() {
-            const wordMeaning = await user.getWordDetal(this.wordName );
+    async queryWordMeaning(wordName) {
+            const wordMeaning = await user.getWordDetal({ wordName });
             this.word=wordMeaning[0];
-            this.$router.push({ name: 'search', params:{ wordName: this.word.wordName ,wordMeaning: this.word.wordMeaning } });
+            await this.$router.push(`/search/${wordMeaning[0].wordName}`);
     }
   }
 }
